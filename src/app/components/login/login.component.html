@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="login">
+        <img src="./assets/img/user.png" alt="user">
+        <h1>Login</h1>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <form class="example-form">
+                <mat-form-field appearance="fill" class="login-input" >
+                  <input matInput placeholder="User" value="" autocomplete="off" formControlName="user">
+                </mat-form-field>
+              
+                <mat-form-field appearance="fill" class="login-input">
+                    <input type="password" matInput placeholder="Password" value="" autocomplete="off" formControlName="password">
+                </mat-form-field>
+              </form>
+              <button  type="submit"
+               mat-raised-button color="primary"
+                class="login-input login-btn"
+                [disabled]="form.invalid">Submit</button>
+        </form>        
+    </div>   
+</div>
