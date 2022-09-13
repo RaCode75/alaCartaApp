@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //materialui
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 
 //components
 import { LoginComponent } from './components/login/login.component';
+import { RoutingModule } from './routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -29,7 +31,10 @@ import { LoginComponent } from './components/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    RoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
