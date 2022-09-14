@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 //components
 import { LoginComponent } from './components/login/login.component';
-import { RoutingModule } from './routing.module';
+import { RoutingModule, routingComponents } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,12 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    routingComponents//LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
