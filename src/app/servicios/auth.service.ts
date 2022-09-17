@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../modelos/user';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,10 @@ export class AuthService {
       .post(this.uri , {email: userData.email, password: userData.password})
       .subscribe((resp: any) => {
         //guardamos el token
-        localStorage.setItem('auth_token', resp.token);
+        if(resp.token){
+        localStorage.setItem('auth_token', resp.token);        
+        this.router.navigateByUrl('/home');
+        } 
       })
 
   }
@@ -28,7 +33,7 @@ export class AuthService {
     localStorage.removeItem('auth_token');
   }
 
-  //servicio para verificar si hay un token
+  // hay un token?
   public  isLogIn(){ 
     return (localStorage.getItem('auth_token') !== null);
   }

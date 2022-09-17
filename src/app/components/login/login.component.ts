@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/servicios/auth.service';
 
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 export class LoginComponent implements OnInit {
 
   //variables
-  form: FormGroup;
+  formLogin: FormGroup;
   isSubmitted = false;
 
   constructor(
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router
     ) {
-    this.form = this.fb.group({
-      email: [ "", Validators.required ],
+    this.formLogin = this.fb.group({
+      email: [ "challenge@alkemy.org", Validators.required ],
       password: [ "", Validators.required ]
 
     });
@@ -30,17 +30,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get formControls(){
-    return this.form.controls;
-  }
+  // get formControls(){
+  //   return this.formLogin.controls;
+  // }
+
   login(){
     this.isSubmitted = true;
-    if (this.form.invalid) {
+    if (this.formLogin.invalid) {
       return;
     }
     
-    this.authService.login(this.form.value);
-    this.router.navigateByUrl('/home');    
+     this.authService.login(this.formLogin.value);
+    console.log("enviando");
+
+
   }
 
 }

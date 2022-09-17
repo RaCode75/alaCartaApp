@@ -2,7 +2,7 @@
     <div class="login">
         <img src="./assets/img/user.png" alt="user">
         <h1>Login</h1>
-        <form [formGroup]="form" (ngSubmit)="login()">
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
             <div class="example-form">
                 <mat-form-field appearance="fill" class="login-input" >
                   <input matInput placeholder="User" value="" autocomplete="off" formControlName="email">
@@ -15,8 +15,7 @@
               <button  type="submit"
                 mat-raised-button color="primary"
                 class="login-input login-btn"
-                (click)="login()"
-                [disabled]="form.invalid">Enviar</button>
+                [disabled]="formLogin.invalid">Enviar</button>
         </form>        
     </div>   
 </div>
