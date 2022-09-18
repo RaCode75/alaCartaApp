@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // get formControls(){
-  //   return this.formLogin.controls;
-  // }
 
   login(){
     this.isSubmitted = true;

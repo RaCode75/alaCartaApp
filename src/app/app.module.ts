@@ -10,9 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card'
 
 //components
-import { LoginComponent } from './components/login/login.component';
 import { RoutingModule, routingComponents } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     ReactiveFormsModule,
     FormsModule,
     RoutingModule,

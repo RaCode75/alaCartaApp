@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>{{plato.title}}</mat-card-title>
+        <mat-card-subtitle>$ {{plato.pricePerServing}}</mat-card-subtitle>
+        <img mat-card-sm-image src={{plato.image}} >
+      </mat-card-title-group>
+      <mat-card-content>
+        {{plato.vegan}}
+        {{plato.healthScore}}
+        {{plato.readyInMinutes}}
+      </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button>Detalle</button>
+        <button mat-button>Eliminar</button>
+        <button mat-button>Agregar</button>
+    </mat-card-actions>
+    <mat-card-content></mat-card-content>
+</mat-card>
