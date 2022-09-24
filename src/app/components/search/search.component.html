@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="form-container">
+    <mat-form-field appearance="fill" class="search" >
+        <input matInput placeholder="User" value="" autocomplete="off" formControlName="search">
+      </mat-form-field>
+    </div>
+    <button  type="submit"
+    mat-raised-button color="primary"
+    class="login-input login-btn"
+    [disabled]="searchForm.invalid">Enviar</button>
+    </form>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let plato of platos">
+            <app-plato [plato] = "plato">
+            </app-plato>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

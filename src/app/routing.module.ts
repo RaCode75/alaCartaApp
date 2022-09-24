@@ -5,11 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { PlatoComponent } from './components/plato/plato.component';
 import { AuthGuard } from './auth.guard';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({
@@ -21,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class RoutingModule { }
-export const routingComponents = [LoginComponent, HomeComponent, PlatoComponent];
+export const routingComponents = [LoginComponent, HomeComponent, PlatoComponent, SearchComponent];

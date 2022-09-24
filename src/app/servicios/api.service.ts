@@ -16,10 +16,19 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
+    //gets
     getPlato(platoId: number):Observable<Platoi>{
       let direction = this.uri + "recipes/" + platoId + "/information?includeNutrition=false&apiKey=" + this.key;
       return this.http.get<Platoi>(direction);
-
     }
+
+    searchOptionDiet(diet: string):Observable<any>{
+       let direction = this.uri + "recipes/complexSearch?diet=" + diet.search + "&number=6&apiKey=" + this.key;
+      return this.http.get<any>(direction); 
+    }
+
+    
+  
+    
    }
 

@@ -20,6 +20,11 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('login')
   }
 
+  search(){
+    this.router.navigateByUrl('search')
+  }
+
+
   
 
 }
