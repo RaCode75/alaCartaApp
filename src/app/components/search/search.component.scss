@@ -1,0 +1,47 @@
+/*
+#14471E
+#68904D
+#C8D2D1
+#EE9B01
+#DA6A00
+
+
+
+*/
+
+
+.container{
+    background-color: #14471E;
+    padding-top: 2rem;
+    width: 100%;
+    .form-container{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        background-color: #68904D;
+
+        .search{
+            margin: 1rem auto;
+            width: 90%;
+            background-color: aliceblue;
+        }
+    
+    }
+
+    .btn-container{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.5rem;;
+        padding-right: 5%;
+
+    }
+
+    .grid-container{
+        padding: 1.5rem;
+
+    }
+
+  
+
+}
