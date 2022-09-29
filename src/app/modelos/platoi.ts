@@ -1,5 +1,5 @@
 export interface Platoi {
-    id?: number,
+    id?: number | undefined,
     title?: string,
     image?: string,
     readyInMinutes?: number,

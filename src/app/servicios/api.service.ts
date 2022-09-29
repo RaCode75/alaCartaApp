@@ -17,7 +17,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
     //gets
-    getPlato(platoId: number):Observable<Platoi>{
+    getPlato(platoId: number | undefined ):Observable<Platoi>{
       let direction = this.uri + "recipes/" + platoId + "/information?includeNutrition=false&apiKey=" + this.key;
       return this.http.get<Platoi>(direction);
     }
