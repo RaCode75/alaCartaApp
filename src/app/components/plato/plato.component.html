@@ -9,7 +9,7 @@
       <mat-card-content *ngIf="detalles">
         <p>Health Score: {{plato.healthScore}}</p>
         <p>Tiempo de espera: {{plato.readyInMinutes}}</p>
-        <h3 *ngIf="plato.vegan">Vegan</h3>
+        <h5 *ngIf="plato.vegan">Vegan</h5>
       </mat-card-content>
     <mat-card-actions class="c-actions" align="end">
         <button mat-button (click)="verDetalles()">Detalles</button>

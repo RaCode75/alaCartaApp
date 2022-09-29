@@ -11,7 +11,6 @@ export class PlatoComponent implements OnInit {
   @HostBinding('attr-class') cssClass = 'row';
   @Input()plato: Platoi = {}
   detalles: boolean = false;
-  //id = this.plato.id;
  
     constructor(private api: ApiService){
      
