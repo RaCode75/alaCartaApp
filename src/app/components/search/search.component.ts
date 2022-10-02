@@ -24,8 +24,6 @@ export class SearchComponent implements OnInit {
    ) {
    this.searchForm = this.fb.group({
      search: [ "", Validators.required ],
-
-
    });
   }
 
@@ -39,8 +37,6 @@ export class SearchComponent implements OnInit {
     }    
     this.api.searchOptionDiet(this.searchForm.value).subscribe(data => {
       this.platos = data.results;
-      console.log(this.platos);
-      //
     });
   }
 }

@@ -6,7 +6,7 @@
       <div class="card-img">
       <img mat-card-sm-image src={{plato.image}} >
     </div>
-      <mat-card-content *ngIf="detalles">
+      <mat-card-content>
         <p>Health Score: {{plato.healthScore}}</p>
         <p>Tiempo de espera: {{plato.readyInMinutes}}</p>
         <h5 *ngIf="plato.vegan">Vegan</h5>
@@ -14,7 +14,7 @@
     <mat-card-actions class="c-actions" align="end">
         <button mat-button (click)="verDetalles()">Detalles</button>
         <button mat-button>Eliminar</button>
-        <button mat-button>Agregar</button>
+        <button mat-button (click)="addPlato()">Agregar</button>
     </mat-card-actions>
     <mat-card-content *ngIf="detalles">
       {{plato.summary}}

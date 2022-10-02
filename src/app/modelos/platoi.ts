@@ -6,5 +6,10 @@ export interface Platoi {
     healthScore?: number,
     pricePerServing?: number,
     summary?: string,
-    vegan?: boolean
+    vegan?: boolean,
+    precioAcum?: number,
+    minutosAcum?: number,
+    MinutosProm?: number,
+    HealthSAcum?: number,
+    HealthProm?:number
 }
