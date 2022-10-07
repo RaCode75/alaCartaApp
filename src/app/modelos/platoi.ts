@@ -13,3 +13,8 @@ export interface Platoi {
     HealthSAcum?: number,
     HealthProm?:number
 }
+
+export interface Etiqueta extends Platoi{
+    title:string
+
+}

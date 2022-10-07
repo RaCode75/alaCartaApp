@@ -1,8 +1,8 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api.service';
-import { PlatosService } from 'src/app/servicios/platos.service';
-import { Platoi } from '../../modelos/platoi';
+import { PlatosService } from 'src/app/servicios/menu.service';
+import { Platoi, Etiqueta } from '../../modelos/platoi';
 
 @Component({
   selector: 'app-plato',
@@ -12,6 +12,7 @@ import { Platoi } from '../../modelos/platoi';
 export class PlatoComponent implements OnInit {
   @HostBinding('attr-class') cssClass = 'row';
   @Input()plato: Platoi = {}
+  empty: Etiqueta = {title: "Agrega un plato al menu!"};
   detalles: boolean = false;
  
     constructor(private api: ApiService,
@@ -20,30 +21,39 @@ export class PlatoComponent implements OnInit {
 
   ngOnInit(){ 
     if(this.plato.healthScore && this.plato.pricePerServing && this.plato.readyInMinutes){
-      this.detalles = !this.detalles;
       return;
     } 
     else if(this.plato.id){
-    this.api.getPlato(this.plato.id).subscribe(data =>{
-      this.plato.healthScore = data.healthScore,
-      this.plato.pricePerServing = data.pricePerServing,
-      this.plato.readyInMinutes = data.readyInMinutes,
-      this.plato.vegan = data.vegan
+      this.api.getPlato(this.plato.id).subscribe(data =>{
+        this.plato.healthScore = data.healthScore,
+        this.plato.pricePerServing = data.pricePerServing,
+        this.plato.readyInMinutes = data.readyInMinutes,
+        this.plato.vegan = data.vegan
     })
+  } else if(!this.plato){
+      this.plato = this.empty;
   }
+    
+
+  }
+
+  verDetalles(){
+       
     this.detalles = !this.detalles;
-
   }
 
-  verDetalles(){    
+  addPlatoMenu(){
+    if(this.router.url === '/search'){
+      this.plserv.addPlato(this.plato);
+      this.router.navigateByUrl('home')
+  }
+   return;
 
   }
-
-  addPlato(){
-    this.plserv.setPlatoUno(this.plato);
-    console.log(this.plato);
-    this.router.navigateByUrl('home')
-
+  quitarPlatoMenu(){
+    if(this.router.url === '/home'){
+    this.plserv.quitarPlato(this.plato);
+    }
   }
 }
 

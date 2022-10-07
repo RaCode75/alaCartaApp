@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { PlatosService } from 'src/app/servicios/platos.service';
+import { PlatosService } from 'src/app/servicios/menu.service';
 import { Router } from '@angular/router';
 import { Platoi } from 'src/app/modelos/platoi';
 import { PlatoComponent } from '../plato/plato.component';
@@ -11,26 +11,22 @@ import { PlatoComponent } from '../plato/plato.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit, OnDestroy {
-  @Input() plato: Platoi = {};
-  primerPlato: Platoi = {};
+
   private platoServiceSubscription: Subscription | undefined;
 
-  maxPlatos: number = 4;
-  totalPlatos: number = 0;
-  veganRequired: number = 2;
-  totalVegan: number = 0;
-  platos: Platoi[] = [];
+
+  menu: Platoi[] = [];
 
   constructor( private autService: AuthService, private platosService: PlatosService ,private router: Router){}
 
 
 
   ngOnInit(): void {
-    this.platoServiceSubscription = this.platosService.primerPlato.subscribe(
+    this.platoServiceSubscription = this.platosService.menuListAction$.subscribe(
       data => {
-        this.plato = data;
-        this.platos.push(this.plato);
+        this.menu = data;
         console.log(data)
       }
     );
@@ -49,9 +45,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   search(){
     this.router.navigateByUrl('search')
-  }
-
-
-  
+  }  
 
 }

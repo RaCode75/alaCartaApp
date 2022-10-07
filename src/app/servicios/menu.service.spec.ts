@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlatosService } from './platos.service';
+import { PlatosService } from './menu.service';
 
 describe('PlatosService', () => {
   let service: PlatosService;
