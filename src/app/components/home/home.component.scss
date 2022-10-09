@@ -4,6 +4,12 @@
         margin: 1rem auto;
     }
 
+    .detalles-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
     .btn-container{
         display: flex;
         justify-content: end;

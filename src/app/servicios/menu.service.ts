@@ -9,7 +9,7 @@ import { Platoi } from '../modelos/platoi';
 export class MenuService {
   private menuList$ = new BehaviorSubject<Platoi[]>([]);
   menuListAction$ = this.menuList$.asObservable();
-  private detalles$ = new BehaviorSubject<any>({});
+  private detalles$ = new BehaviorSubject<{}>({});
   detallesAction$ = this.detalles$.asObservable();
 
   
@@ -87,6 +87,7 @@ setDetalles(menu: Platoi[]){
     }   
           tiempoPromedio = tiempoTotal / menu.length;
           healthSPromedio = healthSTotal / menu.length;
+
           this.detalles = {
             tiempoTotal,
             tiempoPromedio,
@@ -94,7 +95,7 @@ setDetalles(menu: Platoi[]){
             healthSPromedio,
             precioTotal
           }
-          this.detalles$.next(this.detalles);          
+          this.detalles$.next(this.detalles);      
     } return
   }
 }

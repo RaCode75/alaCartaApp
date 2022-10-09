@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   menu: Platoi[] = [];
-  detalles: {} = {};
+  detalles: any = {};
 
   constructor( private autService: AuthService, private menuService: MenuService ,private router: Router){}
 
@@ -30,14 +30,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       data => {
         this.menu = data;
       }
-    );
-
+    )
     this.detallesServiceSubscription = this.menuService.detallesAction$.subscribe(
       detalles => {
         this.detalles = detalles;
-        console.log("d " + this.detalles)
+        console.log(this.detalles)
       }
-    )
+    );
   }
 
   ngOnDestroy(): void {

@@ -2,7 +2,9 @@
     <h1 class="title">Menu</h1>
 
     <div class="detalles-container" *ngIf="detalles">
-        <p ></p>
+        <p>Tiempo promedio: {{detalles.tiempoPromedio}}</p>
+        <p>HealthScore promedio: {{detalles.healthSPromedio}}</p>
+        <p>Precio total: {{detalles.precioTotal}}</p>
     </div>
     <mat-grid-list cols="1" rowHeight="15rem" gutterSize="1rem">
         <mat-grid-tile class="g-tile" *ngFor="let plato of menu">
