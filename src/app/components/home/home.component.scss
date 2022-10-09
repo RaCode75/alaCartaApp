@@ -1,0 +1,12 @@
+.container{
+    text-align: center;
+    .title{
+        margin: 1rem auto;
+    }
+
+    .btn-container{
+        display: flex;
+        justify-content: end;
+        padding: 0.5rem 1rem;
+    }
+}

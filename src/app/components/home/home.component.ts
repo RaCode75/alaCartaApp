@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { PlatosService } from 'src/app/servicios/menu.service';
+import { MenuService } from 'src/app/servicios/menu.service';
 import { Router } from '@angular/router';
 import { Platoi } from 'src/app/modelos/platoi';
 import { PlatoComponent } from '../plato/plato.component';
@@ -14,27 +14,35 @@ import { PlatoComponent } from '../plato/plato.component';
 
 export class HomeComponent implements OnInit, OnDestroy {
 
-  private platoServiceSubscription: Subscription | undefined;
+  private menuServiceSubscription: Subscription | undefined;
+  private detallesServiceSubscription: Subscription | undefined;
 
 
   menu: Platoi[] = [];
+  detalles: {} = {};
 
-  constructor( private autService: AuthService, private platosService: PlatosService ,private router: Router){}
+  constructor( private autService: AuthService, private menuService: MenuService ,private router: Router){}
 
 
 
   ngOnInit(): void {
-    this.platoServiceSubscription = this.platosService.menuListAction$.subscribe(
+    this.menuServiceSubscription = this.menuService.menuListAction$.subscribe(
       data => {
         this.menu = data;
-        console.log(data)
       }
     );
+
+    this.detallesServiceSubscription = this.menuService.detallesAction$.subscribe(
+      detalles => {
+        this.detalles = detalles;
+        console.log("d " + this.detalles)
+      }
+    )
   }
 
   ngOnDestroy(): void {
       {
-        this.platoServiceSubscription?.unsubscribe();
+        this.menuServiceSubscription?.unsubscribe();
       }
   }
 

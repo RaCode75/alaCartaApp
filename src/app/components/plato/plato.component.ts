@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api.service';
-import { PlatosService } from 'src/app/servicios/menu.service';
+import { MenuService } from 'src/app/servicios/menu.service';
 import { Platoi, Etiqueta } from '../../modelos/platoi';
 
 @Component({
@@ -16,7 +16,7 @@ export class PlatoComponent implements OnInit {
   detalles: boolean = false;
  
     constructor(private api: ApiService,
-       private plserv: PlatosService,
+       private mserv: MenuService,
        private router: Router){}
 
   ngOnInit(){ 
@@ -44,7 +44,7 @@ export class PlatoComponent implements OnInit {
 
   addPlatoMenu(){
     if(this.router.url === '/search'){
-      this.plserv.addPlato(this.plato);
+      this.mserv.addPlato(this.plato);
       this.router.navigateByUrl('home')
   }
    return;
@@ -52,7 +52,7 @@ export class PlatoComponent implements OnInit {
   }
   quitarPlatoMenu(){
     if(this.router.url === '/home'){
-    this.plserv.quitarPlato(this.plato);
+    this.mserv.quitarPlato(this.plato);
     }
   }
 }
