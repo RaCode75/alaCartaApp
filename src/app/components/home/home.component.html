@@ -1,20 +1,17 @@
 <div class="container">
     <h1 class="title">Menu</h1>
 
-    <div class="detalles-container" *ngIf="detalles">
+    <div class="detalles-container" *ngIf="menuDetalles && menu.length!=0">
         <p>Tiempo promedio: {{detalles.tiempoPromedio}}</p>
         <p>HealthScore promedio: {{detalles.healthSPromedio}}</p>
         <p>Precio total: {{detalles.precioTotal}}</p>
     </div>
-    <mat-grid-list cols="1" rowHeight="15rem" gutterSize="1rem">
+    <mat-grid-list cols="1" rowHeight="15rem" gutterSize="1rem" *ngIf="menu">
         <mat-grid-tile class="g-tile" *ngFor="let plato of menu">
-            <app-plato [plato] = "plato"></app-plato>            
-        </mat-grid-tile>
+            <app-plato [plato] = "plato" (click)="verDetalles()" ></app-plato>      
+        </mat-grid-tile>       
     </mat-grid-list>   
  
-    <mat-card>
-        
-    </mat-card>
 <div class="btn-container">
 <button  type="submit"
     mat-raised-button color="primary"

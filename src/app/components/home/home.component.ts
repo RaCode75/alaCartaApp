@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { MenuService } from 'src/app/servicios/menu.service';
 import { Router } from '@angular/router';
-import { Platoi } from 'src/app/modelos/platoi';
-import { PlatoComponent } from '../plato/plato.component';
+import { Etiqueta, Platoi } from 'src/app/modelos/platoi';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   menu: Platoi[] = [];
+  baseMenu: Etiqueta = {title: "Arma tu menu"};
   detalles: any = {};
+  menuDetalles: boolean = false;
 
   constructor( private autService: AuthService, private menuService: MenuService ,private router: Router){}
 
@@ -53,5 +56,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   search(){
     this.router.navigateByUrl('search')
   }  
+
+  verDetalles(){
+    this.menuDetalles = !this.menuDetalles;
+  }
 
 }

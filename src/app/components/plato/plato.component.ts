@@ -11,7 +11,8 @@ import { Platoi, Etiqueta } from '../../modelos/platoi';
 })
 export class PlatoComponent implements OnInit {
   @HostBinding('attr-class') cssClass = 'row';
-  @Input()plato: Platoi = {}
+  @Input()plato: Platoi = {};
+  
   empty: Etiqueta = {title: "Agrega un plato al menu!"};
   detalles: boolean = false;
  

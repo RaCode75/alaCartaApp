@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Platoi } from '../modelos/platoi';
 
@@ -14,16 +15,14 @@ export class MenuService {
 
   
   
-//variables
+//variables ******************************************************************
   plato: Platoi = {};
   menu:Platoi[] = [];
-  detalles:{} = {}
+  detalles:{} = {};
   maxPlatos: number = 4;
   totalPlatos: number = 0;
   veganRequired: number = 2;
   totalVegan: number = 0;
-
-
   
 
   constructor() {
@@ -32,7 +31,8 @@ export class MenuService {
         this.menuList$.next(JSON.parse(menuStorage));
         if(this.menu.length == 0){
           this.menu = JSON.parse(menuStorage)
-          this.setDetalles(this.menu);      
+          this.setDetalles(this.menu);
+          this.checkVegan(this.menu);      
         }
         }
       }
@@ -46,25 +46,42 @@ setMenu( menu: Platoi[]): void {
 }
 
 addPlato(plato: Platoi): void {
-  if(this.menu.length < this.maxPlatos ){
+  if(this.menu.length < this.maxPlatos/2){
   this.menu.push(plato);
    //actualizar menu
   this.setMenu(this.menu);
-    // this.precioTotal += plato.pricePerServing || 0;
-    // this.tiempoTotal += plato.readyInMinutes || 0;
-    // this.healthSTotal += plato.healthScore || 0;
-  this.setDetalles(this.menu);  
+  this.setDetalles(this.menu);
+  this.checkVegan(this.menu);  
+  } else if(this.menu.length == this.maxPlatos/2 && this.totalVegan < this.maxPlatos/2){
+      if(!this.plato.vegan){}
+      else {
+        this.menu.push(plato);
+        this.setMenu(this.menu);
+        this.setDetalles(this.menu);
+        this.checkVegan(this.menu); 
+      }
+  }else if(this.totalVegan == this.veganRequired && this.menu.length < this.maxPlatos){
+      if(this.plato.vegan){}
+      else{
+        this.menu.push(plato);
+        this.setMenu(this.menu);
+        this.setDetalles(this.menu);
+        this.checkVegan(this.menu);
+      }
+  }else {
+    this.menu.push(plato);
+    this.setMenu(this.menu);
+    this.setDetalles(this.menu);
+    this.checkVegan(this.menu);
   }
-  return
 }
 
 quitarPlato(plato: Platoi): void {
   let index:number = this.menu.indexOf(plato);
   this.menu.splice(index, index+1);
-    // this.precioTotal -= plato.pricePerServing || 0;
-    // this.tiempoTotal -= plato.readyInMinutes || 0;
-    // this.healthSTotal -= plato.healthScore || 0;
+  //actualizar menu
   this.setMenu(this.menu);
+  this.checkVegan(this.menu);
   this.setDetalles(this.menu);
 }
 
@@ -97,5 +114,14 @@ setDetalles(menu: Platoi[]){
           }
           this.detalles$.next(this.detalles);      
     } return
+  }
+
+  checkVegan(menu: Platoi[]){
+    for(let i=0; i< menu.length; i++){
+      if(menu[i].vegan){
+        this.totalVegan +=1;
+      }
+      
+    }
   }
 }
