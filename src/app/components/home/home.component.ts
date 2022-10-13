@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { MenuService } from 'src/app/servicios/menu.service';
 import { Router } from '@angular/router';
 import { Etiqueta, Platoi } from 'src/app/modelos/platoi';
-import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -37,7 +36,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.detallesServiceSubscription = this.menuService.detallesAction$.subscribe(
       detalles => {
         this.detalles = detalles;
-        console.log(this.detalles)
       }
     );
   }

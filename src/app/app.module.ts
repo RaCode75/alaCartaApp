@@ -17,6 +17,8 @@ import { MatGridListModule } from '@angular/material/grid-list'
 //components
 import { RoutingModule, routingComponents } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
+//SweetAlert
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -40,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     RoutingModule,
     HttpClientModule,
     MatGridListModule,
+    [SweetAlert2Module.forRoot()],
   ],
   providers: [],
   bootstrap: [AppComponent]
