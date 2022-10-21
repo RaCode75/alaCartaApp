@@ -1,17 +1,11 @@
 <div class="container">
-    <form [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
+    <form [formGroup]="searchForm" class="search-form">
         <div class="form-container">
     <mat-form-field appearance="fill" class="search" >
         <mat-label>Buscar Plato</mat-label>
-        <input matInput value="" autocomplete="off" formControlName="search">
+        <input matInput value="" autocomplete="off" formControlName="searchInput" (keyup)="parcialSearch(searchInput.value)">
       </mat-form-field>
     </div>
-        <div class="btn-container">
-            <button  type="submit"
-            mat-raised-button color="primary"
-            class="login-input login-btn"
-            [disabled]="searchForm.invalid">Enviar</button>
-        </div>
     </form>
         <div class="grid-container">
         <mat-grid-list cols="1" rowHeight="15rem" gutterSize="1rem">

@@ -6,6 +6,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PlatoComponent } from './components/plato/plato.component';
 import { AuthGuard } from './auth.guard';
 import { SearchComponent } from './components/search/search.component';
+import { HeaderComponent } from './shared/header/header.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,10 +20,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+    CommonModule,    
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })
 export class RoutingModule { }
-export const routingComponents = [LoginComponent, HomeComponent, PlatoComponent, SearchComponent];
+export const routingComponents = [
+   LoginComponent,
+   HomeComponent,
+   PlatoComponent,
+   SearchComponent,
+   HeaderComponent
+  ];

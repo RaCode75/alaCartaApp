@@ -13,12 +13,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 //components
 import { RoutingModule, routingComponents } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
+
 //SweetAlert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 
@@ -27,7 +34,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents//LoginComponent
+    routingComponents,
   ],
   imports: [
     BrowserModule,
@@ -37,11 +44,15 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatButtonModule,
     MatCardModule,
     MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
     ReactiveFormsModule,
+    MatIconModule,
     FormsModule,
     RoutingModule,
     HttpClientModule,
     MatGridListModule,
+    FlexLayoutModule,
     [SweetAlert2Module.forRoot()],
   ],
   providers: [],
