@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/servicios/auth.service';
 import { MenuService } from 'src/app/servicios/menu.service';
 import { Router } from '@angular/router';
 import { Etiqueta, Platoi } from 'src/app/modelos/platoi';
@@ -23,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   detalles: any = {};
   menuDetalles: boolean = false;
 
-  constructor( private autService: AuthService, private menuService: MenuService ,private router: Router){}
+  constructor( private menuService: MenuService ,private router: Router){}
 
 
 
@@ -46,10 +45,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
   }
 
-  logout(){
-    this.autService.logout();
-    this.router.navigateByUrl('login')
-  }
 
   search(){
     this.router.navigateByUrl('search')

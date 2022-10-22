@@ -7,6 +7,7 @@ import { PlatoComponent } from './components/plato/plato.component';
 import { AuthGuard } from './auth.guard';
 import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { SidenavListComponent } from './shared/sidenav-list/sidenav-list.component';
 
 
 
@@ -18,12 +19,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,    
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule] 
 })
 export class RoutingModule { }
 export const routingComponents = [
@@ -31,5 +33,6 @@ export const routingComponents = [
    HomeComponent,
    PlatoComponent,
    SearchComponent,
-   HeaderComponent
+   HeaderComponent,
+   SidenavListComponent,
   ];

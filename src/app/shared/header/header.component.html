@@ -4,8 +4,12 @@
             <mat-icon>menu</mat-icon>
         </button>
     </div>
-    <div>
-        <a routerLink="/home">A La Carta</a>
+    <div >        
+        <a routerLink="/home" fxFlex fxLayout fxLayoutAlign="start center">
+            <mat-icon>store</mat-icon>
+            <span class="nav-caption">A La Carta</span>            
+        </a>
+       
     </div>
     <div  fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
@@ -13,7 +17,7 @@
                 <a routerLink="/search" class="item">Buscar Plato</a>
             </li>
             <li>
-                <a routerLink="/login">Logout</a>
+                <button mat-button id="logout" (click)="onLogout">Logout</button>
             </li>
         </ul>
     </div>

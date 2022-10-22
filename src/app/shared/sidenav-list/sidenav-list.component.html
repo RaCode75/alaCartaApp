@@ -1,0 +1,9 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon><span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item routerLink="/search" (click)="onSidenavClose()">
+        <mat-icon>search</mat-icon><span class="nav-caption">Buscar Plato</span>
+    </a>
+    <button mat-button color="warn" (click)="onLogout">Logout</button>
+</mat-nav-list>
